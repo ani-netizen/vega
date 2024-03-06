@@ -15,7 +15,7 @@ const Navbar = () => {
           <div className="text-xl font-bold text-white">JobSync</div>
         </div>
 
-        <div className="hidden sm:flex space-x-4">
+        <div className="hidden sm:flex space-x-4" style={{"marginLeft":"5%"}}>
           <a href="/" className="text-white hover:text-gray-200">
             Home
           </a>

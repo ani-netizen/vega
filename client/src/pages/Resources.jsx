@@ -10,7 +10,7 @@ const ResourceCard = ({ title, description, tags, link }) => {
           {tags?.map((tag, index) => (
             <span
               key={index}
-              className="inline-block bg-gray-200 rounded-full px-2 py-1 mr-2 text-xs font-medium"
+              className="inline-block bg-gray-200 rounded-full px-2 py-1 mr-2 text-xs font-medium flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
             >
               {tag}
             </span>
