@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 
-import connectDB from "./connection.js";
+import connectDB from "./database/connection.js";
 
 const app = express();
 
