@@ -1,15 +1,19 @@
-import React from 'react';
-
-import CompanyProfiles from './components/CompanyCard/CompanyProfiles';
-import Resources from './components/ResourceCard/Resources';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import CompanyProfiles from "./pages/CompanyProfiles";
+import Resources from "./pages/Resources";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <main>
-        <CompanyProfiles />
-        <Resources />
-      </main>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<CompanyProfiles />} />
+        {/* <Route path="/ipc" element={Calendar} /> */}
+        <Route path="/cip" element={<CompanyProfiles />} />
+        <Route path="/pma" element={<Resources />} />
+      </Routes>
     </div>
   );
 }
