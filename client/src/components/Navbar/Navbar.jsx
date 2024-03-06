@@ -1,14 +1,16 @@
 import React from "react";
+import logo from "../../assets/Gemini_Generated_Image.jpeg"
 
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 flex items-center justify-between p-4">
-      <div className="flex justify-between items-center basis-5/12">
-        <div className="flex">
+      <div className="flex justify-between items-center basis-3/12">
+        <div className="flex items-center">
           <img
-            src="..\..\assets\Gemini_Generated_Image.jpeg"
+            src={logo}
+           
             alt="jobSync"
-            className="w-10 h-10 mr-4"
+            className="w-10 h-10 mr-4 rounded-full object-cover"
           />
           <div className="text-xl font-bold text-white">JobSync</div>
         </div>

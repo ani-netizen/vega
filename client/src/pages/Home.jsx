@@ -9,14 +9,15 @@ const HomePage = () => {
           A platform that empowers students to manage their placement opportunities and connect with companies seamlessly.
         </p>
         <div className="flex justify-center space-x-4">
-          <a href="/companies" className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md">
+          <a href="/cip" className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md">
             Explore Companies
           </a>
-          <a href="/resources" className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md">
+          <a href="/pma" className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md">
             Get Placement Resources
           </a>
         </div>
       </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
         <div className="bg-white rounded-md shadow-md p-4">
           <h3 className="text-lg font-medium mb-2">Upcoming Placements</h3>
