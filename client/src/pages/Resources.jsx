@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 const ResourceCard = ({ title, description, tags, link }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="p-4">
-        <h5 className="text-xl font-medium mb-2">{title}</h5>
-        <p className="text-gray-700 mb-4">{description}</p>
+        <h5 className="text-xl font-medium mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+        <p className="text-gray-700 mb-4 mb-3 text-gray-500 dark:text-gray-400">{description}</p>
         <div className="flex items-center mb-2">
           {tags?.map((tag, index) => (
             <span
