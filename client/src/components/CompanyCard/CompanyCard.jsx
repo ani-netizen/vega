@@ -1,21 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CompanyCard({ company }) {
   return (
-    <div
-      className={`company-profile rounded overflow-hidden shadow-md bg-white p-4 transform hover:scale-105`}
-    >
-      <h3 className="text-lg font-medium mb-2">{company.name}</h3>
-      <p>
-        <strong>Job Roles:</strong> {company.jobRoles.join(", ")}
-      </p>
-      <p>
-        <strong>Eligibility Criteria:</strong> {company.eligibilityCriteria}
-      </p>
-      <p>
-        <strong>Placement Statistics:</strong> {company.placementStatistics}
-      </p>
-    </div>
+    <Link to={`/${company._id}`}>
+      <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4">
+        <div class="flex flex-col items-center">
+          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+            {company.name}
+          </h5>
+          <p class="text-sm text-gray-400 overflow-ellipsis">
+            {company.description}
+          </p>
+          <div class="text-gray-400 mt-4 md:mt-6 text-sm">
+            <p>
+              <strong className="text-white">Job Roles:</strong>{" "}
+              {company.jobRoles.join(", ")}
+            </p>
+            <p>
+              <strong className="text-white">Eligibility Criteria:</strong>{" "}
+              {company.eligibilityCriteria}
+            </p>
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 }
 

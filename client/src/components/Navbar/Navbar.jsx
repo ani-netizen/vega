@@ -26,7 +26,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <button className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md">
+      <button className="px-4 py-2 bg-green-500 duration-500 hover:bg-green-600 text-white rounded-md">
         Login
       </button>
     </nav>
