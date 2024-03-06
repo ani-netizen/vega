@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function CompanyCard({ company }) {
   return (
-    <Link to={`/${company._id}`}>
+    <Link to={`/company/${company._id}`}>
       <div className="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow overflow-hidden">
         <div className="flex flex-col  p-4">
           <h5 className="mb-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white items-center flex flex-col">

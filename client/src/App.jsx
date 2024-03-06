@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import ContactUs from "./pages/Contactus";
 import AboutUs from "./pages/AboutUs";
+import CompanyDetails from "./pages/CompanyDetails";
 
 function App() {
   return (
@@ -18,9 +19,7 @@ function App() {
         <Route path="/cip" element={<CompanyProfiles />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/about-us" element={<AboutUs />} />
-
-
-
+        <Route path="/company/:id" element={<CompanyDetails/>} />
         <Route path="/pma" element={<Resources />} />
       </Routes>
     </div>

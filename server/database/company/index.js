@@ -18,9 +18,19 @@ const companySchema = new mongoose.Schema({
     required: true,
   },
   placementStatistics: {
-    type: String,
-    required: true,
-  },
+    totalOffers: {
+      type: Number,
+      required: true
+    },
+    averageSalary: {
+      type: String,
+      required: true
+    },
+    highestPackage: {
+      type: String,
+      required: true
+  }
+  }
 });
 
 export const CompanyModel = mongoose.model("Company", companySchema);

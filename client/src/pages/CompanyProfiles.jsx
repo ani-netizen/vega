@@ -159,19 +159,66 @@ const CompanyProfiles = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="placementStatistics" className="block text-gray-700 font-bold mb-2">
-                Placement Statistics
+              <label htmlFor="totalOffers" className="block text-gray-700 font-bold mb-2">
+                Total Offers
               </label>
               <input
-                type="text"
-                id="placementStatistics"
+                type="number"
+                id="totalOffers"
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                placeholder="Enter placement statistics"
-                value={formData.placementStatistics}
-                onChange={(e) => setFormData({ ...formData, placementStatistics: e.target.value })}
+                placeholder="Enter total offers"
+                value={formData.placementStatistics.totalOffers}
+                onChange={(e) => setFormData({ 
+                  ...formData, 
+                  placementStatistics: { 
+                    ...formData.placementStatistics, 
+                    totalOffers: parseInt(e.target.value)
+                  } 
+                })}
                 required
               />
             </div>
+            <div className="mb-4">
+              <label htmlFor="averageSalary" className="block text-gray-700 font-bold mb-2">
+                Average Salary
+              </label>
+              <input
+                type="text"
+                id="averageSalary"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Enter average salary"
+                value={formData.placementStatistics.averageSalary}
+                onChange={(e) => setFormData({ 
+                  ...formData, 
+                  placementStatistics: { 
+                    ...formData.placementStatistics, 
+                    averageSalary: e.target.value
+                  } 
+                })}
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="highestPackage" className="block text-gray-700 font-bold mb-2">
+                Highest Package
+              </label>
+              <input
+                type="text"
+                id="highestPackage"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Enter highest package"
+                value={formData.placementStatistics.highestPackage}
+                onChange={(e) => setFormData({ 
+                  ...formData, 
+                  placementStatistics: { 
+                    ...formData.placementStatistics, 
+                    highestPackage: e.target.value
+                  } 
+                })}
+                required
+              />
+            </div>
+
             <div className="flex items-center justify-between">
               <button onClick={handleSubmit}
                 type="submit"
