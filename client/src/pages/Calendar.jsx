@@ -5,18 +5,15 @@ import styled from "styled-components";
 
 
 function Calendar() {
-  const handleDateClick = (arg) => {
-    alert(arg.dateStr)
-  }
-
+  
   return <Wrapper>
   <FullCalendar
   plugins={[ dayGridPlugin ]}
   initialView="dayGridMonth"
   // weekends={false}
   events={[
-    { title: 'event 1', date: '2024-02-26' },
-    { title: 'event 2', date: '2024-03-08' },
+    { title: 'event 1', start: '2024-02-26' },
+    { title: 'event 2', start: '2024-03-08' },
     {
       title  : 'event4',
       start  : '2024-03-05',
@@ -33,7 +30,6 @@ function Calendar() {
       allDay : false // will make the time show
     }
   ]}
-  dateClick={handleDateClick}
 />
   
   </Wrapper>;
