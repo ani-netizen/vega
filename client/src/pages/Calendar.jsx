@@ -10,6 +10,9 @@ function Calendar() {
   <FullCalendar
   plugins={[ dayGridPlugin ]}
   initialView="dayGridMonth"
+  height="80vh"  // Set the overall height
+  contentHeight="80vh" // Set the height of the view area
+  aspectRatio={2}
   // weekends={false}
   events={[
     { title: 'event 1', start: '2024-02-26' },
@@ -35,6 +38,6 @@ function Calendar() {
   </Wrapper>;
 }
 const Wrapper = styled.section`
-padding: 2rem 2rem;
+padding: 1rem 2rem;
 `;
 export default Calendar;
