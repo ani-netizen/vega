@@ -1,26 +1,24 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
-const ResourceSchema = new mongoose.Schema(
-  {
-    user: { type: mongoose.Types.ObjectId, ref: "Users" },
-    orderDetails: [
-      {
-        food: { type: mongoose.Types.ObjectId, ref: "Foods" },
-        quantity: { type: Number, required: true },
-        paymonde: { type: String, requird: true },
-        status: { type: String, default: "Placed" },
-        paymentDetails: {
-          itemTotal: { type: Number, required: true },
-          promo: { type: Number, required: true },
-          tax: { type: Number, required: true },
-          razorpayPaymentId: { type: String, requird: true },
-        },
-      },
-    ],
+const resourceSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
   },
-  {
-    timestamps: true,
-  }
-);
+  description: {
+    type: String,
+    required: true,
+  },
+  tags: {
+    type: [String],
+    required: true,
+  },
+  link: {
+    type: String,
+    required: true,
+  },
+});
 
-export const ResourceModel = mongoose.model("Resource", ResourceSchema);
+const Resource = mongoose.model('Resource', resourceSchema);
+
+module.exports = Resource;
