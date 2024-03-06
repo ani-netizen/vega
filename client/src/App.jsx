@@ -10,18 +10,17 @@ import AboutUs from "./pages/AboutUs";
 import CompanyDetails from "./pages/CompanyDetails";
 import AuthOptions from "./pages/AuthOptions";
 
-
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/ipc" element={<Calendar/>} />
+        <Route path="/ipc" element={<Calendar />} />
         <Route path="/cip" element={<CompanyProfiles />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/company/:id" element={<CompanyDetails/>} />
+        <Route path="/company/:id" element={<CompanyDetails />} />
         <Route path="/auth-options" element={<AuthOptions />} />
         <Route path="/pma" element={<Resources />} />
       </Routes>

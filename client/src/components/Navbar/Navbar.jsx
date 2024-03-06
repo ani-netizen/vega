@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/Gemini_Generated_Image.jpeg"
+import logo from "../../assets/Gemini_Generated_Image.jpeg";
 
 const Navbar = () => {
   return (
@@ -8,14 +8,13 @@ const Navbar = () => {
         <div className="flex items-center">
           <img
             src={logo}
-           
             alt="jobSync"
             className="w-10 h-10 mr-4 rounded-full object-cover"
           />
           <div className="text-xl font-bold text-white">JobSync</div>
         </div>
 
-        <div className="hidden sm:flex space-x-4" style={{"marginLeft":"5%"}}>
+        <div className="hidden sm:flex space-x-4" style={{ marginLeft: "5%" }}>
           <a href="/" className="text-white hover:text-gray-200">
             Home
           </a>

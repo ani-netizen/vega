@@ -11,7 +11,7 @@ const CompanyProfiles = () => {
     jobRoles: "",
     description: "",
     eligibilityCriteria: "",
-    placementStatistics: ""
+    placementStatistics: "",
   });
 
   useEffect(() => {
@@ -33,10 +33,10 @@ const CompanyProfiles = () => {
     e.preventDefault();
     try {
       await axios({
-        method : "POST",
-        url : `http://localhost:8080/company/add`,
-        data : formData
-      }); 
+        method: "POST",
+        url: `http://localhost:8080/company/add`,
+        data: formData,
+      });
       setIsOpen(false);
       // Reset form data after successful submission
       setFormData({
@@ -44,7 +44,7 @@ const CompanyProfiles = () => {
         jobRoles: "",
         description: "",
         eligibilityCriteria: "",
-        placementStatistics: ""
+        placementStatistics: "",
       });
     } catch (error) {
       console.error("Error adding company:", error);
@@ -66,7 +66,7 @@ const CompanyProfiles = () => {
           </div>
         ))}
       </div>
-     
+
       <Transition.Root show={isOpen} as={Fragment}>
         <Dialog
           as="div"
@@ -102,139 +102,184 @@ const CompanyProfiles = () => {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
-              <form>
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
-                Company Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                placeholder="Enter company name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="jobRoles" className="block text-gray-700 font-bold mb-2">
-                Job Roles
-              </label>
-              <input
-                type="text"
-                id="jobRoles"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                placeholder="Enter job roles (comma-separated)"
-                value={formData.jobRoles}
-                onChange={(e) => setFormData({ ...formData, jobRoles: e.target.value.split(",") })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="description" className="block text-gray-700 font-bold mb-2">
-                Description
-              </label>
-              <textarea
-                id="description"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                placeholder="Enter company description"
-                value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="eligibilityCriteria" className="block text-gray-700 font-bold mb-2">
-                Eligibility Criteria
-              </label>
-              <input
-                type="text"
-                id="eligibilityCriteria"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                placeholder="Enter eligibility criteria"
-                value={formData.eligibilityCriteria}
-                onChange={(e) => setFormData({ ...formData, eligibilityCriteria: e.target.value })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="totalOffers" className="block text-gray-700 font-bold mb-2">
-                Total Offers
-              </label>
-              <input
-                type="number"
-                id="totalOffers"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                placeholder="Enter total offers"
-                value={formData.placementStatistics.totalOffers}
-                onChange={(e) => setFormData({ 
-                  ...formData, 
-                  placementStatistics: { 
-                    ...formData.placementStatistics, 
-                    totalOffers: parseInt(e.target.value)
-                  } 
-                })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="averageSalary" className="block text-gray-700 font-bold mb-2">
-                Average Salary
-              </label>
-              <input
-                type="text"
-                id="averageSalary"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                placeholder="Enter average salary"
-                value={formData.placementStatistics.averageSalary}
-                onChange={(e) => setFormData({ 
-                  ...formData, 
-                  placementStatistics: { 
-                    ...formData.placementStatistics, 
-                    averageSalary: e.target.value
-                  } 
-                })}
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="highestPackage" className="block text-gray-700 font-bold mb-2">
-                Highest Package
-              </label>
-              <input
-                type="text"
-                id="highestPackage"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                placeholder="Enter highest package"
-                value={formData.placementStatistics.highestPackage}
-                onChange={(e) => setFormData({ 
-                  ...formData, 
-                  placementStatistics: { 
-                    ...formData.placementStatistics, 
-                    highestPackage: e.target.value
-                  } 
-                })}
-                required
-              />
-            </div>
+                <form>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="name"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
+                      Company Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      placeholder="Enter company name"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="jobRoles"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
+                      Job Roles
+                    </label>
+                    <input
+                      type="text"
+                      id="jobRoles"
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      placeholder="Enter job roles (comma-separated)"
+                      value={formData.jobRoles}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          jobRoles: e.target.value.split(","),
+                        })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="description"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
+                      Description
+                    </label>
+                    <textarea
+                      id="description"
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      placeholder="Enter company description"
+                      value={formData.description}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          description: e.target.value,
+                        })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="eligibilityCriteria"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
+                      Eligibility Criteria
+                    </label>
+                    <input
+                      type="text"
+                      id="eligibilityCriteria"
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      placeholder="Enter eligibility criteria"
+                      value={formData.eligibilityCriteria}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          eligibilityCriteria: e.target.value,
+                        })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="totalOffers"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
+                      Total Offers
+                    </label>
+                    <input
+                      type="number"
+                      id="totalOffers"
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      placeholder="Enter total offers"
+                      value={formData.placementStatistics.totalOffers}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          placementStatistics: {
+                            ...formData.placementStatistics,
+                            totalOffers: parseInt(e.target.value),
+                          },
+                        })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="averageSalary"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
+                      Average Salary
+                    </label>
+                    <input
+                      type="text"
+                      id="averageSalary"
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      placeholder="Enter average salary"
+                      value={formData.placementStatistics.averageSalary}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          placementStatistics: {
+                            ...formData.placementStatistics,
+                            averageSalary: e.target.value,
+                          },
+                        })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="highestPackage"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
+                      Highest Package
+                    </label>
+                    <input
+                      type="text"
+                      id="highestPackage"
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      placeholder="Enter highest package"
+                      value={formData.placementStatistics.highestPackage}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          placementStatistics: {
+                            ...formData.placementStatistics,
+                            highestPackage: e.target.value,
+                          },
+                        })
+                      }
+                      required
+                    />
+                  </div>
 
-            <div className="flex items-center justify-between">
-              <button onClick={handleSubmit}
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                Add Company
-              </button>
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={handleSubmit}
+                      type="submit"
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    >
+                      Add Company
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setIsOpen(false)}
+                      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
               </div>
             </Transition.Child>
           </div>

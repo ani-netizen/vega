@@ -6,8 +6,12 @@ const ResourceCard = ({ title, description, tags, link }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div className="p-4">
-        <h5 className="text-xl font-medium mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">{title}</h5>
-        <p className="text-gray-700 mb-4 mb-3 text-gray-500 dark:text-gray-400">{description}</p>
+        <h5 className="text-xl font-medium mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+          {title}
+        </h5>
+        <p className="text-gray-700 mb-4 mb-3 text-gray-500 dark:text-gray-400">
+          {description}
+        </p>
         <div className="flex items-center mb-2">
           {tags?.map((tag, index) => (
             <span
@@ -18,7 +22,12 @@ const ResourceCard = ({ title, description, tags, link }) => {
             </span>
           ))}
         </div>
-        <a href={link} target="_blank" rel="noreferrer noopener" className="text-indigo-500 hover:text-indigo-700">
+        <a
+          href={link}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-indigo-500 hover:text-indigo-700"
+        >
           View Resource
         </a>
       </div>
@@ -33,7 +42,7 @@ function Resources() {
     title: "",
     description: "",
     tags: "",
-    link: ""
+    link: "",
   });
 
   useEffect(() => {
@@ -55,7 +64,7 @@ function Resources() {
       await axios({
         method: "POST",
         url: `http://localhost:8080/resource/add`,
-        data: formData
+        data: formData,
       });
       setIsOpen(false);
       // Reset form data after successful submission
@@ -63,7 +72,7 @@ function Resources() {
         title: "",
         description: "",
         tags: "",
-        link: ""
+        link: "",
       });
     } catch (error) {
       console.error("Error adding resource:", error);
@@ -72,7 +81,9 @@ function Resources() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Preparation Resources</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">
+        Preparation Resources
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {resources.map((resource) => (
           <ResourceCard key={resource.title} {...resource} />
@@ -115,7 +126,10 @@ function Resources() {
               <div className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
-                    <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
+                    <label
+                      htmlFor="title"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
                       Title
                     </label>
                     <input
@@ -124,12 +138,17 @@ function Resources() {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       placeholder="Enter resource title"
                       value={formData.title}
-                      onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, title: e.target.value })
+                      }
                       required
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="description" className="block text-gray-700 font-bold mb-2">
+                    <label
+                      htmlFor="description"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
                       Description
                     </label>
                     <textarea
@@ -137,12 +156,20 @@ function Resources() {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       placeholder="Enter resource description"
                       value={formData.description}
-                      onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          description: e.target.value,
+                        })
+                      }
                       required
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="tags" className="block text-gray-700 font-bold mb-2">
+                    <label
+                      htmlFor="tags"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
                       Tags
                     </label>
                     <input
@@ -151,12 +178,20 @@ function Resources() {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       placeholder="Enter resource tags (comma-separated)"
                       value={formData.tags}
-                      onChange={(e) => setFormData({ ...formData, tags: e.target.value.split(",") })}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          tags: e.target.value.split(","),
+                        })
+                      }
                       required
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="link" className="block text-gray-700 font-bold mb-2">
+                    <label
+                      htmlFor="link"
+                      className="block text-gray-700 font-bold mb-2"
+                    >
                       Link
                     </label>
                     <input
@@ -165,7 +200,9 @@ function Resources() {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       placeholder="Enter resource link"
                       value={formData.link}
-                      onChange={(e) => setFormData({ ...formData, link: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, link: e.target.value })
+                      }
                       required
                     />
                   </div>

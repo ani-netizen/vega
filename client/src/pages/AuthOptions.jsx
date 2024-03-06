@@ -25,7 +25,9 @@ const AuthOptions = () => {
   return (
     <div className="flex w-full justify-center items-center h-screen bg-gray-100">
       <div className="flex flex-col items-center space-y-8">
-        <h1 className="text-5xl font-bold text-center text-gray-700">Login As</h1>
+        <h1 className="text-5xl font-bold text-center text-gray-700">
+          Login As
+        </h1>
         <div className="flex flex-col space-y-4">
           <button
             onClick={handleAdminLogin}
@@ -50,7 +52,10 @@ const AuthOptions = () => {
             <form>
               {/* Add email and password fields */}
               <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-700 font-bold mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -61,7 +66,10 @@ const AuthOptions = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="password" className="block text-gray-700 font-bold mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-gray-700 font-bold mb-2"
+                >
                   Password
                 </label>
                 <input
@@ -71,18 +79,28 @@ const AuthOptions = () => {
                   placeholder="Enter your password"
                 />
               </div>
-             
+
               <button
-                  type="submit"
-                  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md mr-5"
-                >
-                  Login
-                </button>
-              <button onClick={handleCloseModals} className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md mt-4">
+                type="submit"
+                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md mr-5"
+              >
+                Login
+              </button>
+              <button
+                onClick={handleCloseModals}
+                className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md mt-4"
+              >
                 Close
               </button>
-              <p className="text-gray-700">Don't have an account? <button onClick={handleSignup} className="text-blue-500 hover:underline mt-5">Signup</button></p>
-
+              <p className="text-gray-700">
+                Don't have an account?{" "}
+                <button
+                  onClick={handleSignup}
+                  className="text-blue-500 hover:underline mt-5"
+                >
+                  Signup
+                </button>
+              </p>
             </form>
           </div>
         </div>
@@ -94,7 +112,10 @@ const AuthOptions = () => {
             <form>
               {/* Add name, email, and password fields */}
               <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-gray-700 font-bold mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -105,7 +126,10 @@ const AuthOptions = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-700 font-bold mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -116,7 +140,10 @@ const AuthOptions = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="password" className="block text-gray-700 font-bold mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-gray-700 font-bold mb-2"
+                >
                   Password
                 </label>
                 <input
@@ -127,12 +154,15 @@ const AuthOptions = () => {
                 />
               </div>
               <button
-                  type="submit"
-                  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md mr-2"
-                >
-                  Register
-                </button>
-              <button onClick={handleCloseModals} className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md">
+                type="submit"
+                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md mr-2"
+              >
+                Register
+              </button>
+              <button
+                onClick={handleCloseModals}
+                className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+              >
                 Close
               </button>
             </form>
