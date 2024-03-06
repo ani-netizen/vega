@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import ContactUs from "./pages/Contactus";
 import AboutUs from "./pages/AboutUs";
 import CompanyDetails from "./pages/CompanyDetails";
+import AuthOptions from "./pages/AuthOptions";
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/company/:id" element={<CompanyDetails/>} />
+        <Route path="/auth-options" element={<AuthOptions />} />
         <Route path="/pma" element={<Resources />} />
       </Routes>
     </div>
