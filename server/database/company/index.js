@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const CompanySchema = new mongoose.Schema(
   {
+    name: { type: String, required: true },
     user: { type: mongoose.Types.ObjectId, ref: "Users" },
     orderDetails: [
       {
@@ -23,4 +24,4 @@ const CompanySchema = new mongoose.Schema(
   }
 );
 
-export const CompanyModel = mongoose.model("Company", CompanySchemaSchema);
+export const CompanyModel = mongoose.model("Company", CompanySchema);
