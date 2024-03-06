@@ -22,18 +22,30 @@ const CompanyDetails = () => {
   }, [id]);
 
   return (
-    <div className="h-full grid grid-rows-1 bg-gray-100 rounded-md shadow-md">
-      <div className="p-4 flex flex-col space-y-2 justify-center items-center">
-        <h1 className="text-2xl font-bold">{company?.name}</h1>
-        <p className="text-gray-600">{company?.description}</p>
-        <p className="font-bold">Job Roles: {company?.jobRoles?.join(", ")}</p>
-        <p className="font-bold">Eligibility Criteria: {company?.eligibilityCriteria}</p>
-        <p className="font-bold">Placement Statistics:</p>
-        <ul className="list-disc space-y-1 ml-4">
-          <li>Total Offers: {company?.placementStatistics?.totalOffers}</li>
-          <li>Average Salary: {company?.placementStatistics?.averageSalary}</li>
-          <li>Highest Package: {company?.placementStatistics?.highestPackage}</li>
-        </ul>
+    <div className="container mx-auto px-4">
+      <div className="md:flex md:justify-center">
+        <div className="md:w-1/2">
+          <div className="bg-white shadow-md rounded-lg p-8 mb-4">
+            <h1 className="text-3xl font-bold mb-4">{company?.name}</h1>
+            <p className="text-gray-700 mb-4">{company?.description}</p>
+            <div className="mb-4">
+              <p className="text-gray-700 font-semibold">Job Roles:</p>
+              <p>{company?.jobRoles?.join(", ")}</p>
+            </div>
+            <div className="mb-4">
+              <p className="text-gray-700 font-semibold">Eligibility Criteria:</p>
+              <p>{company?.eligibilityCriteria}</p>
+            </div>
+            <div>
+              <p className="text-gray-700 font-semibold">Placement Statistics:</p>
+              <ul>
+                <li>Total Offers: {company?.placementStatistics?.totalOffers}</li>
+                <li>Average Salary: {company?.placementStatistics?.averageSalary}</li>
+                <li>Highest Package: {company?.placementStatistics?.highestPackage}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
