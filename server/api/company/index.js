@@ -18,9 +18,9 @@ Router.get("/:_id", async (req, res) => {
   try {
     const { _id } = req.params;
 
-    const companies = await CompanyModel.findById(_id);
+    const company = await CompanyModel.findById(_id);
 
-    return res.status(200).json({ companies });
+    return res.status(200).json({ company });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

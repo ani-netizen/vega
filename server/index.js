@@ -6,6 +6,8 @@ import connectDB from "./database/connection.js";
 
 import Company from "./api/company/index.js";
 import Resource from "./api/resource/index.js";
+import Student from "./api/student/index.js";
+import Admin from "./api/admin/index.js";
 
 const app = express();
 
@@ -15,6 +17,8 @@ app.use(helmet());
 
 app.use("/company", Company);
 app.use("/resource", Resource);
+app.use("/student", Student);
+app.use("/admin", Admin);
 
 const PORT = process.env.PORT || 8080;
 
