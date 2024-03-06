@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CompanyCard({ company }) {
   return (
     <Link to={`/${company._id}`}>
-      <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4">
+      <div class="w-full max-w-sm border hover:scale-105 duration-500 rounded-lg shadow bg-gray-800 border-gray-700 p-4">
         <div class="flex flex-col items-center">
           <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
             {company.name}
