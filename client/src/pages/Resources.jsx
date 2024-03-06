@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 const ResourceCard = ({ title, description, tags, link }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -25,30 +25,20 @@ const ResourceCard = ({ title, description, tags, link }) => {
 };
 
 function Resources() {
-  const resources = [
-    {
-      title: "Interview Experience: Software Engineer at Google",
-      description:
-        "Insights and tips from a recent interview experience, including technical questions and behavioral questions.",
-      tags: ["Software Engineer", "Google", "Interview Tips"],
-      link: "https://example.com/interview-experience-google",
-    },
-    {
-      title: "Study Guide: Data Structures and Algorithms",
-      description:
-        "Comprehensive guide covering essential data structures and algorithms relevant to various coding interviews.",
-      tags: ["Data Structures", "Algorithms", "Coding Interviews"],
-      link: "https://example.com/data-structures-algorithms-guide",
-    },
-    {
-      // Add more resources here
-      title: "Interviews Experience: Software Engineer at Google",
-      description:
-        "Insights and tips from a recent interview experience, including technical questions and behavioral questions.",
-      tags: ["Software Engineer", "Google", "Interview Tips"],
-      link: "https://example.com/interview-experience-google",
-    },
-  ];
+  const [resources, setResources] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios({
+        method: "GET",
+        url: `http://localhost:8080/resource`,
+      });
+
+      setResources(response.data.resources);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-8">
