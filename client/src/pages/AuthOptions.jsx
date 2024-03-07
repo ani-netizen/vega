@@ -3,18 +3,103 @@ import React, { useState } from "react";
 const AuthOptions = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
 
   const handleAdminLogin = () => {
+    setIsAdmin(true);
     setShowLoginModal(true);
   };
 
   const handleStudentLogin = () => {
+    setIsAdmin(false);
     setShowLoginModal(true);
   };
-
-  const handleSignup = () => {
+  const handleAdminLoginLogic = async (e) => {
+        e.preventDefault();
+        try {
+          let res = await fetch("http://localhost:8080/admin/sign-in", {
+            method: "POST",
+            body: JSON.stringify(
+              { credentials:
+                {
+                email: email,
+                password: password
+              }
+              }
+            ),
+          });
+          let resJson = await res.json();
+          if (resJson.success) {
+            const token= resJson.token
+            console.log(resJson.token);//debugging
+            sessionStorage.setItem('token', token);
+          } else {
+            console.log("Some error occured during admin login");
+          }
+        } catch (err) {
+          console.log(err);
+        }
+  }
+  const handleStudentLoginLogic = async (e) => {
+    e.preventDefault();
+    try {
+      let res = await fetch("http://localhost:8080/student/sign-in", {
+        method: "POST",
+        body: JSON.stringify(
+          { credentials:
+            {
+            email: email,
+            password: password
+          }
+          }
+        ),
+      });
+      let resJson = await res.json();
+      if (resJson.success) {
+        const token= resJson.token
+        console.log(resJson.token);//debugging
+        sessionStorage.setItem('token', token);
+      } else {
+        console.log("Some error occured during student login");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+}
+  const handleSignup=()=>{
     setShowLoginModal(false);
     setShowSignupModal(true);
+  }
+  const handleSignupLogic =  async (e) => {
+    e.preventDefault();
+    try {
+      let res = await fetch("http://localhost:8080/student/sign-up", {
+        method: "POST",
+        body: JSON.stringify(
+          { credentials:
+            {
+            name:name,
+            email: email,
+            password: password,
+          }
+          }
+        ),
+      });
+      let resJson = await res.json();
+      if (resJson.success) {
+        const token= resJson.token
+        console.log(resJson.token);//debugging
+        sessionStorage.setItem('token', token);
+      } else {
+        console.log("Some error occured during student reg");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleCloseModals = () => {
@@ -49,7 +134,7 @@ const AuthOptions = () => {
         <div className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded-md w-96">
             <h2 className="text-2xl font-bold mb-4">Login</h2>
-            <form>
+            <form onSubmit={isAdmin ? handleAdminLoginLogic : handleStudentLoginLogic}>
               {/* Add email and password fields */}
               <div className="mb-4">
                 <label
@@ -63,6 +148,9 @@ const AuthOptions = () => {
                   id="email"
                   className="border rounded-md px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500"
                   placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="mb-4">
@@ -77,6 +165,9 @@ const AuthOptions = () => {
                   id="password"
                   className="border rounded-md px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500"
                   placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </div>
 
@@ -109,7 +200,7 @@ const AuthOptions = () => {
         <div className="fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-8 rounded-md w-96">
             <h2 className="text-2xl font-bold mb-4">Signup</h2>
-            <form>
+            <form onSubmit={handleSignupLogic}>
               {/* Add name, email, and password fields */}
               <div className="mb-4">
                 <label
@@ -123,6 +214,9 @@ const AuthOptions = () => {
                   id="name"
                   className="border rounded-md px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500"
                   placeholder="Enter your Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </div>
               <div className="mb-4">
@@ -137,6 +231,9 @@ const AuthOptions = () => {
                   id="email"
                   className="border rounded-md px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500"
                   placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="mb-4">
@@ -151,6 +248,9 @@ const AuthOptions = () => {
                   id="password"
                   className="border rounded-md px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500"
                   placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </div>
               <button

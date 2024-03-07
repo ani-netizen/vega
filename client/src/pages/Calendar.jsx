@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import styled from "styled-components";
 
 function Calendar() {
+  const [events, setEvents] = React.useState([]);
+  const getEvents = async () => {
+    try {
+      let res = await fetch("http://localhost:8080/events/", {
+        method: "GET",
+      });
+      let resJson = await res.json();
+      if (resJson.success) {
+        const events= resJson.events
+        console.log(resJson.events);//debugging
+      } else {
+        console.log("Some error occured during fetching calender events");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+}
+  useEffect(() => {
+    getEvents();
+  }, []);
   return (
     <Wrapper>
       <FullCalendar
